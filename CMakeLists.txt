@@ -1,7 +1,4 @@
-﻿# CMakeList.txt : CMake project for godotengineTestApp, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required (VERSION 3.12)
 
 # Enable Hot Reload for MSVC compilers if supported.
 if (POLICY CMP0141)
@@ -9,16 +6,27 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
+# Set project name
 project ("godotengineTestApp")
 
 # Add other projects
 add_subdirectory(godot-cpp)
 
-# Add source to this project's executable.
-add_executable (godotengineTestApp "godotengineTestApp.cpp" "godotengineTestApp.h")
+# Add src files
+set(SRC_FILES 
+  src/godotengineTestApp.cpp
+  src/godotengineTestApp.h
+)
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET godotengineTestApp PROPERTY CXX_STANDARD 20)
-endif()
+# Add executable target
+add_executable (godotengineTestApp ${SRC_FILES})
 
+# Set target properties
+set_target_properties(godotengineTestApp PROPERTIES 
+  VERSION 1.0
+  CXX_STANDARD 20
+  CXX_STANDARD_REQUIRED ON
+)
+
+# Link libraries
 target_link_libraries(godotengineTestApp godot-cpp)
