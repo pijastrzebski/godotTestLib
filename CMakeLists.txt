@@ -25,7 +25,7 @@ set(HEADER_FILES
 )
 
 # Add executable target
-add_library (godotTestLib STATIC ${SRC_FILES} ${HEADER_FILES})
+add_library (godotTestLib SHARED ${SRC_FILES} ${HEADER_FILES})
 
 # Build the godot-cpp extension dll
 add_custom_command(

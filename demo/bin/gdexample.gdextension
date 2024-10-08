@@ -1,6 +1,6 @@
 [configuration]
 
-entry_symbol = "godotEngineTestAppLibraryInit"
+entry_symbol = "godotTestLibLibraryInit"
 compatibility_minimum = "4.1"
 reloadable = true
 

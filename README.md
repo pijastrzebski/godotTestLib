@@ -1,2 +1,2 @@
-# godotengineTestApp
-Godot Engine Test App
+# godotTestLib
+Godot Engine Test Lib

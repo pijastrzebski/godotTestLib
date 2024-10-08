@@ -3,19 +3,19 @@
 #include "godotcustomsprite.hpp"
 
 extern "C" {
-	GDExtensionBool GDE_EXPORT godotEngineTestAppLibraryInit(GDExtensionInterfaceGetProcAddress procAddress, const GDExtensionClassLibraryPtr libraryPtr, GDExtensionInitialization* initializationPtr)
+	GDExtensionBool GDE_EXPORT godotTestLibLibraryInit(GDExtensionInterfaceGetProcAddress procAddress, const GDExtensionClassLibraryPtr libraryPtr, GDExtensionInitialization* initializationPtr)
 	{
 		GDExtensionBinding::InitObject initObject(procAddress, libraryPtr, initializationPtr);
 
-		initObject.register_initializer(GodotRegisterTypes::initializeTestAppModule);
-		initObject.register_terminator(GodotRegisterTypes::uninitializeTestAppModule);
+		initObject.register_initializer(GodotRegisterTypes::initializeTestLibModule);
+		initObject.register_terminator(GodotRegisterTypes::uninitializeTestLibModule);
 		initObject.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
 
 		return initObject.init();
 	}
 }
 
-void GodotRegisterTypes::initializeTestAppModule(ModuleInitializationLevel level)
+void GodotRegisterTypes::initializeTestLibModule(ModuleInitializationLevel level)
 {
 	if (level != MODULE_INITIALIZATION_LEVEL_SCENE)
 	{
@@ -26,7 +26,7 @@ void GodotRegisterTypes::initializeTestAppModule(ModuleInitializationLevel level
 	GDREGISTER_CLASS(GodotCustomSprite);
 }
 
-void GodotRegisterTypes::uninitializeTestAppModule(ModuleInitializationLevel level)
+void GodotRegisterTypes::uninitializeTestLibModule(ModuleInitializationLevel level)
 {
 	if (level != MODULE_INITIALIZATION_LEVEL_SCENE)
 	{

@@ -6,6 +6,6 @@ using namespace godot;
 
 struct GodotRegisterTypes
 {
-	static void initializeTestAppModule(ModuleInitializationLevel level);
-	static void uninitializeTestAppModule(ModuleInitializationLevel level);
+	static void initializeTestLibModule(ModuleInitializationLevel level);
+	static void uninitializeTestLibModule(ModuleInitializationLevel level);
 };
