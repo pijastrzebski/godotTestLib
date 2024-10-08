@@ -7,26 +7,44 @@ if (POLICY CMP0141)
 endif()
 
 # Set project name
-project ("godotengineTestApp")
+project ("godotEngineTestApp")
 
 # Add other projects
 add_subdirectory(godot-cpp)
 
 # Add src files
 set(SRC_FILES 
-  src/godotengineTestApp.cpp
-  src/godotengineTestApp.h
+  src/main.cpp
+  src/godotcustomsprite.cpp
+  src/godotregistertypes.cpp
+)
+
+# Add header files
+set(HEADER_FILES
+  src/godotcustomsprite.hpp
+  src/godotregistertypes.hpp
 )
 
 # Add executable target
-add_executable (godotengineTestApp ${SRC_FILES})
+add_executable (godotEngineTestApp ${SRC_FILES} ${HEADER_FILES})
+
+# Build the godot-cpp extension dll
+add_custom_command(
+    TARGET godotEngineTestApp
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E echo "Running SCons script..."
+    COMMAND cmd /c "${CMAKE_SOURCE_DIR}/run_scons"
+    COMMENT "Running SCons after building godotEngineTestApp"
+)
+
+message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
 
 # Set target properties
-set_target_properties(godotengineTestApp PROPERTIES 
+set_target_properties(godotEngineTestApp PROPERTIES 
   VERSION 1.0
   CXX_STANDARD 20
   CXX_STANDARD_REQUIRED ON
 )
 
 # Link libraries
-target_link_libraries(godotengineTestApp godot-cpp)
+target_link_libraries(godotEngineTestApp godot-cpp)

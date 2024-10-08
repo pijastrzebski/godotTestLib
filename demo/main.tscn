@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsxinadxlitxb"]
+
+[ext_resource type="Texture2D" uid="uid://cjsaortg5x2o8" path="res://icon.svg" id="1_kexap"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GodotCustomSprite" type="GodotCustomSprite" parent="."]
+position = Vector2(-3.5489, 18.7113)
+texture = ExtResource("1_kexap")

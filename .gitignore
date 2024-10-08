@@ -1,3 +1,19 @@
+# Build output
 out/
+
+# Visual Studio
 .vs/
+
+# Debug
+Debug/
+
+# Godot-cpp
 godot-cpp/
+
+# Binaries
+*.obj
+*.dblite
+*.pdb
+*.lib
+*.dll
+*.exe
