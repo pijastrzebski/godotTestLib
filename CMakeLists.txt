@@ -36,9 +36,6 @@ add_custom_command(
     COMMENT "Running SCons after building godotTestLib"
 )
 
-
-message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
-
 # Set target properties
 set_target_properties(godotTestLib PROPERTIES 
   VERSION 1.0
