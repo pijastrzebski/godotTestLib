@@ -1,6 +1,7 @@
 ﻿#include "godotcustomsprite.hpp"
 
 #include "godot_cpp/classes/engine.hpp"
+#include "godot_cpp/classes/input.hpp"
 #include "godot_cpp/variant/utility_functions.hpp"
 
 GodotCustomSprite::GodotCustomSprite()
@@ -23,6 +24,26 @@ void GodotCustomSprite::_process(double delta)
 	);
 
 	set_position(newPos);
+
+
+	// test keyboard input
+	if (Input::get_singleton()->is_key_pressed(KEY_UP))
+	{
+		UtilityFunctions::print("Up key pressed");
+	}
+	else if (Input::get_singleton()->is_key_pressed(KEY_DOWN))
+	{
+		UtilityFunctions::print("Down key pressed");
+	}
+	else if (Input::get_singleton()->is_key_pressed(KEY_LEFT))
+	{
+		UtilityFunctions::print("Left key pressed");
+	}
+	else if (Input::get_singleton()->is_key_pressed(KEY_RIGHT))
+	{
+		UtilityFunctions::print("Right key pressed");
+	}
+
 }
 
 void GodotCustomSprite::_bind_methods()

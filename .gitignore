@@ -17,3 +17,5 @@ godot-cpp/
 *.lib
 *.dll
 *.exe
+*.exp
+*.ilk

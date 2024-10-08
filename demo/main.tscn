@@ -5,5 +5,5 @@
 [node name="Main" type="Node2D"]
 
 [node name="GodotCustomSprite" type="GodotCustomSprite" parent="."]
-position = Vector2(-3.5489, 18.7113)
+position = Vector2(-9.3331, 0.0686529)
 texture = ExtResource("1_kexap")
